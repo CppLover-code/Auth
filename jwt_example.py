@@ -46,7 +46,8 @@ datetime.datetime.utcnow() + datetime.timedelta(hours=1)
 
 То есть токен станет недействительным через час.
 """
-token = jwt.encode(    # jwt.encode() кодирует данные в JWT.
+token = jwt.encode(    # jwt.encode() кодирует данные в JWT. 
+    # Он состоит из 3 частей: header.payload.signature, разделённых точками.
     payload,
     SECRET_KEY,
     algorithm="HS256"  # Алгоритм шифрования/подписи. HS256: самый популярный, использует секретный ключ
@@ -64,5 +65,16 @@ data = jwt.decode(
 print(f"DECODED {data}")
 
 # Что хранится внутри JWT
+"""
+Обычно:
+
+{
+    "user_id": 1,
+    "email": "test@mail.com",
+    "role": "admin"
+}
+"""
+# Как токен отправляется в API - Authorization: Bearer TOKEN
+
 
 
