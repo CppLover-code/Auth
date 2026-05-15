@@ -9,7 +9,7 @@ SECRET_KEY = "supersecret"
 users = []
 
 #REGISTER
-@app.route("/register", method=["POST"])
+@app.route("/register", methods=["POST"])
 
 def register():
 
@@ -26,7 +26,7 @@ def register():
         "username": data["username"],
         "password": hashed
     }
-    user.append(user)
+    users.append(user)
 
     return jsonify({
         "message": "User created"
